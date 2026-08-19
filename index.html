@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Paola 💖</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- FONDO -->
+    <div class="stars"></div>
+    <div class="hearts"></div>
+
+    <!-- PANTALLA INICIAL -->
+    <section id="inicio" class="screen">
+
+        <div class="intro">
+
+            <div class="sparkle">✨</div>
+
+            <h1>Para Paola 💖</h1>
+
+            <p>
+                Tengo algo especial que quiero decirte...
+            </p>
+
+            <button id="startBtn">
+                Abrir mi carta 💌
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARTA -->
+    <section id="carta" class="screen hidden">
+
+        <div class="scene">
+
+            <div id="envelope" class="envelope">
+
+                <div class="flap"></div>
+
+                <div class="envelope-body">
+
+                    <div class="heart-seal">
+                        ❤️
+                    </div>
+
+                </div>
+
+                <div id="letter" class="letter">
+
+                    <h2>Querida Paola 💖</h2>
+
+                    <p id="letterText"></p>
+
+                    <div class="signature">
+                        Con mucho cariño,<br>
+                        Santiago ❤️
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p id="openText">
+                Haz clic en el sobre 💌
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section id="final" class="screen hidden">
+
+        <div class="final-box">
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <h1>Paola ✨</h1>
+
+            <p>
+                Gracias por ser una persona tan especial.
+            </p>
+
+            <p>
+                Espero que esta pequeña sorpresa
+                te haya sacado una sonrisa. 🥹💖
+            </p>
+
+            <h2>
+                Nunca olvides lo mucho que vales. 🌷
+            </h2>
+
+            <button id="restartBtn">
+                Ver otra vez 💫
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOTÓN DE MÚSICA -->
+    <button id="musicBtn">
+        🎵
+    </button>
+
+    <audio id="music" loop>
+        <source src="sounds/musica.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- CANVAS PARA PARTICULAS -->
+    <canvas id="particles"></canvas>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

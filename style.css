@@ -1,0 +1,735 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background:
+        radial-gradient(circle at top, #35104d, #12051d 55%, #050208);
+    color: white;
+}
+
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 1s ease,
+                transform 1s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.95);
+}
+
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+.stars,
+.stars::before,
+.stars::after {
+    position: fixed;
+    inset: 0;
+    content: "";
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size: 80px 80px;
+
+    opacity: .35;
+
+    animation: starsMove 20s linear infinite;
+
+    pointer-events: none;
+}
+
+.stars::before {
+    background-size: 130px 130px;
+    animation-duration: 30s;
+}
+
+.stars::after {
+    background-size: 200px 200px;
+    animation-duration: 45s;
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(80px);
+    }
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    text-align: center;
+
+    padding: 40px;
+
+    max-width: 600px;
+
+    animation: introAppear 2s ease;
+}
+
+@keyframes introAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.intro h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(60px, 10vw, 110px);
+
+    color: #ffb6dc;
+
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 30px #ff1493,
+        0 0 60px #ff1493;
+
+    margin-bottom: 15px;
+}
+
+.intro p {
+    font-size: 18px;
+    opacity: .85;
+
+    margin-bottom: 35px;
+}
+
+.sparkle {
+    font-size: 45px;
+
+    animation:
+        sparkle 2s infinite alternate,
+        float 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+    from {
+        transform: scale(.8);
+        opacity: .5;
+    }
+
+    to {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+}
+
+@keyframes float {
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff69b4,
+        #ff1493
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-family: "Poppins", sans-serif;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px #ff1493,
+        0 0 35px rgba(255,20,147,.5);
+
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px #ff69b4,
+        0 0 60px #ff1493;
+}
+
+
+.scene {
+    position: relative;
+
+    width: min(92vw, 700px);
+    min-height: 520px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1200px;
+}
+
+
+/* =================================
+   SOBRE
+================================= */
+
+.envelope {
+    position: relative;
+
+    width: 340px;
+    height: 220px;
+
+    cursor: pointer;
+
+    transition:
+        transform .8s ease,
+        opacity .8s ease;
+
+    filter:
+        drop-shadow(0 20px 30px rgba(0,0,0,.5));
+
+    animation: envelopeFloat 3s ease-in-out infinite;
+
+    z-index: 5;
+}
+
+@keyframes envelopeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* =================================
+   CUERPO DEL SOBRE
+================================= */
+
+.envelope-body {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8ac8,
+            #ff3f9f
+        );
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(255,20,147,.35);
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+
+/* =================================
+   TRIANGULOS
+================================= */
+
+.envelope-body::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-style: solid;
+
+    border-width:
+        0
+        0
+        145px
+        170px;
+
+    border-color:
+        transparent
+        transparent
+        #ff69b4
+        transparent;
+
+    z-index: 4;
+}
+
+.envelope-body::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-style: solid;
+
+    border-width:
+        145px
+        170px
+        0
+        0;
+
+    border-color:
+        #ff1493
+        transparent
+        transparent
+        transparent;
+
+    z-index: 4;
+}
+
+
+/* =================================
+   SOLAPA
+================================= */
+
+.flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-top: 125px solid #ff1493;
+
+    transform-origin: top center;
+
+    transition:
+        transform 1s ease;
+
+    z-index: 7;
+}
+
+
+/* =================================
+   SELLO
+================================= */
+
+.heart-seal {
+    position: absolute;
+
+    top: 82px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 42px;
+
+    z-index: 10;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            scale(1.2);
+    }
+
+}
+
+
+/* =================================
+   CARTA
+================================= */
+
+.letter {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: min(90vw, 560px);
+
+    min-height: 430px;
+    max-height: 75vh;
+
+    padding: 35px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.75);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff5fb
+        );
+
+    color: #54203f;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        0 0 30px rgba(255,105,180,.3);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    overflow-y: auto;
+
+    z-index: 1;
+
+    transition:
+        opacity .8s ease,
+        transform 1s ease;
+}
+
+
+/* =================================
+   TITULO CARTA
+================================= */
+
+.letter h2 {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 42px;
+
+    color: #d63384;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+
+/* =================================
+   TEXTO
+================================= */
+
+#letterText {
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    min-height: 230px;
+
+    text-align: left;
+}
+
+
+/* =================================
+   FIRMA
+================================= */
+
+.signature {
+
+    margin-top: 20px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 30px;
+
+    text-align: right;
+
+    color: #d63384;
+}
+
+
+/* =================================
+   SOBRE ABIERTO
+================================= */
+
+.envelope.open {
+
+    animation: none;
+
+    transform: none;
+}
+
+
+/* LA SOLAPA SE ABRE */
+
+.envelope.open .flap {
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+/* LA CARTA APARECE COMPLETA */
+
+.envelope.open .letter {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    z-index: 20;
+}
+
+
+/* OCULTAR SELLO */
+
+.envelope.open .heart-seal {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(.5);
+}
+
+
+/* TEXTO DE ABAJO */
+
+#openText {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    transition: opacity .5s ease;
+}
+
+
+/* =========================
+   MUSICA
+========================= */
+
+#musicBtn {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 55px;
+    height: 55px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    z-index: 100;
+}
+
+
+/* =========================
+   PARTICULAS
+========================= */
+
+#particles {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 50;
+}
+
+
+/* =========================
+   CORAZONES FLOTANTES
+========================= */
+
+.hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.floating-heart {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 20px;
+
+    animation: heartFloat linear forwards;
+
+    opacity: .8;
+}
+
+@keyframes heartFloat {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .scene {
+        width: 100vw;
+        min-height: 100vh;
+    }
+
+    .envelope {
+        width: 300px;
+        height: 195px;
+    }
+
+    .flap {
+        border-left-width: 150px;
+        border-right-width: 150px;
+        border-top-width: 110px;
+    }
+
+    .letter {
+
+        width: 90vw;
+
+        min-height: 420px;
+
+        max-height: 80vh;
+
+        padding: 25px 22px;
+
+    }
+
+    .letter h2 {
+        font-size: 36px;
+    }
+
+    #letterText {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .signature {
+        font-size: 27px;
+    }
+
+}
